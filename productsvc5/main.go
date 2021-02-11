@@ -28,6 +28,14 @@ func main() {
 	r.Post("/products", producthttp.CreateProduct(productSvc).ServeHTTP)
 	r.Get("/products/{product_name}", producthttp.GetProduct(productView).ServeHTTP)
 
+	// r.Get("/auth/google/login", func(w http.ResponseWriter, r *http.Request) {
+	// 	authendpoint.GoogleLogin(w, r)
+	// })
+	// r.Get("/auth/google/callback", func(w http.ResponseWriter, r *http.Request) {
+	// 	// fmt.Fprintf(w, "login zz!")
+	// 	authendpoint.GoogleCallback(w, r)
+	// })
+
 	log.Println("Listening on :8080 ...")
 	http.ListenAndServe(":8080", r)
 }
